@@ -1,5 +1,5 @@
 {
-    "name": "gorse/php-gorse",
+    "name": "chenjia404/php-gorse",
     "description": "PHP SDK for Gorse recommender system",
     "type": "library",
     "license": "Apache 2",
