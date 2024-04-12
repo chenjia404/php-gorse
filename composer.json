@@ -2,7 +2,7 @@
     "name": "chenjia404/php-gorse",
     "description": "PHP SDK for Gorse recommender system",
     "type": "library",
-    "license": "Apache 2",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "zhenghaoz",
