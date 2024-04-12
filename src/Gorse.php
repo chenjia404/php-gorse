@@ -27,6 +27,33 @@ class User implements JsonSerializable
     }
 }
 
+
+
+class Item implements JsonSerializable
+{
+    public string $ItemId;
+    public array $labels;
+
+    public function __construct(string $itemId, array $labels)
+    {
+        $this->ItemId = $itemId;
+        $this->labels = $labels;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'ItemId' => $this->ItemId,
+            'Labels' => $this->labels,
+        ];
+    }
+
+    public static function fromJSON($json): Item
+    {
+        return new Item($json->ItemId, $json->Labels);
+    }
+}
+
 class Feedback implements JsonSerializable
 {
     public string $feedback_type;
@@ -82,6 +109,11 @@ final class Gorse
     function insertUser(User $user): RowAffected
     {
         return RowAffected::fromJSON($this->request('POST', '/api/user/', $user));
+    }
+
+    function inserItem(Item $Item) : RowAffected
+    {
+        return RowAffected::fromJSON($this->request('POST', '/api/item/', $Item));
     }
 
     /**
